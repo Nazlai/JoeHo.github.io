@@ -1,0 +1,101 @@
+/*    NavBar
+****************/
+
+.navBar {
+    background-color: $main-color;
+    display: flex;  
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 10px 0;
+    height: 56px;
+    font-family: 'Roboto', Helvetica, Arial, sans-serif;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    &__logo {
+        display: inline-block;
+        vertical-align: middle;
+        @include linkHover($secondary-text-color, none, $secondary-color);
+        font-size: 1.5em;
+        margin-left: 15px;
+    }
+    &__list {
+        display: flex;
+        @media only screen and (max-width:600px) {
+            display: none;
+            &--active{
+                display: block;
+                position: absolute;
+                width: 100%;
+                top: 56px;
+                left: 0;
+                background-color: $main-color;
+                text-align: left;
+                padding: 10px 15px;
+            }
+        }
+    }
+    &__item {
+        @include linkHover($secondary-text-color, none, $secondary-color);
+        padding: 10px;
+        @media only screen and (max-width:600px){
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 0;
+            padding-right: 100%;
+        }
+    }
+    &__mobile {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 56px;
+        width: 56px;  
+        @include media(601px){
+            display: none;
+        }
+    }
+    &__hamburger {
+        position: absolute;
+        top: 14px;
+        left: 10px;
+        padding: 14px 18px;
+    }
+}
+
+.hamburger__toggle {
+    &,
+    &::before,
+    &::after {
+        display: block;
+        content: "";
+        width: 36px;
+        height: 5px;
+        position: absolute;
+        background-color: $background-color;
+        border-radius: 3px;
+        @include transition(all, 300ms, ease-in-out);
+    }
+    right: 0;
+    top: 11px;
+    &::before{
+        top: -11px;
+    }
+    &:after{
+        bottom: -11px;
+    }
+    &--active{
+        background-color: transparent;
+        &::before,
+        &::after {
+            top: 0;
+        }
+        &::before{
+            transform: rotate(45deg);
+        }
+        &::after{
+            transform: rotate(135deg);
+        }
+    }
+}

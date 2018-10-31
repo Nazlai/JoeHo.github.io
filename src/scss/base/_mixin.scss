@@ -1,0 +1,21 @@
+
+@mixin media($breakpoint){
+    @media only screen and (min-width: $breakpoint){
+        @content;
+    }
+}
+
+@mixin linkHover($text-color:$text-color,$text-decoration:none,$hover-color:$main-color){
+    color: $text-color;
+    text-decoration: $text-decoration;
+    &:hover{
+        color:$hover-color;
+    }
+}
+
+@mixin transition($property, $duration, $timing-function){
+    -webkit-transition: #{$property} #{$duration} #{$timing-function};
+    -moz-transition: #{$property} #{$duration} #{$timing-function};
+    -o-transition: #{$property} #{$duration} #{$timing-function};
+    transition: #{$property} #{$duration} #{$timing-function};
+}

@@ -1,0 +1,29 @@
+/*    Contact
+*****************/
+
+.contact {
+    padding: 56px 0;
+    &__title {
+        padding: 0.5em 0;
+        font-size: 2em;
+    }
+    &__text {
+        @include media($breakpoint-tablet){
+            font-size: 1.5em;
+        }
+    }
+    &__links {
+        font-size: 2em;
+        padding-top: 20px;
+        @include media($breakpoint-tablet){
+            font-size: 3em;
+        }
+    }
+    &__mail {
+        @include linkHover();
+    }
+    &__link {
+        padding: 0 0.5em;
+        @include linkHover();
+    }
+}

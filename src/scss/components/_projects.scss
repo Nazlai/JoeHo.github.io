@@ -1,0 +1,70 @@
+/*    Projects
+******************/
+
+.projects {
+    @include media($breakpoint-desktop) {
+        margin: 20px;
+    }
+}
+
+.project {
+    display: block;
+    @include media($breakpoint-tablet){
+        margin: 28px 20px 0;
+    }
+    @include media($breakpoint-desktop) {
+        display: flex;
+    }
+    &__showcase {
+        @include media($breakpoint-desktop) {
+            width: 50%;
+        }
+    }
+    &__info {
+        padding: 1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        color: $text-color;
+        background-color: $background-color;
+        @include media($breakpoint-desktop) {
+            width: 50%;
+        }
+    }
+}
+
+.showcase {
+    &__img {
+        max-width: 100%;
+        vertical-align: bottom;
+    }
+}
+
+.info {
+    &__title {
+        font-family: 'Roboto';
+        font-size: 1.5em;
+    }
+    &__text{
+        font-size: 1em;
+        text-align: left;
+        padding: 1em;
+        line-height: 1.5;
+    }
+    &__link {
+        @include linkHover();
+    }
+    &__btn {
+        color: $background-color;
+        background-color: $button-color;
+        text-decoration: none;
+        display: inline-block;
+        margin: 0 10px;
+        padding: 10px 20px;
+        border: 1px solid transparent;
+        border-radius: 3px;
+        &:active {
+            background-color: darken($color: $button-color, $amount: 10%);
+        }
+    }
+}
